@@ -35,9 +35,3 @@ VALUES
         $1, $2, $3
     )
 RETURNING *;
-
--- name: DeleteTransfer :exec
-DELETE FROM
-    transfers
-WHERE
-    id = $1;

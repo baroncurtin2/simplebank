@@ -1,6 +1,12 @@
 postgres:
 	docker run --name postgres -p 5433:5432 -e POSTGRES_PASSWORD=secret -e POSTGRES_USER=root -d postgres:15.1-alpine
 
+start-postgres:
+	docker start postgres
+
+stop-postgres:
+	docker stop postgres
+
 createdb:
 	docker exec -it postgres createdb --username=root --owner=root simple_bank
 
@@ -16,4 +22,7 @@ migratedown:
 sqlc:
 	sqlc generate
 
-.PHONY: postgres createdb dropdb migrateup migratedown
+test:
+	go test -v -cover ./...
+
+.PHONY: postgres createdb dropdb migrateup migratedown start-postgres stop-postgres test
