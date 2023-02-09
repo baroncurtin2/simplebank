@@ -1,6 +1,7 @@
 package util
 
 import (
+	"fmt"
 	"math/rand"
 	"strings"
 	"time"
@@ -15,6 +16,11 @@ func init() {
 // RandomInt generates a random integer between min and max
 func RandomInt(min, max int64) int64 {
 	return min + rand.Int63n(max-min+1) //nolint:gosec    // 0 -> max-min
+}
+
+func RandomStringMinMax(min, max int64) string {
+	i := RandomInt(min, max)
+	return RandomString(int(i))
 }
 
 func RandomString(n int) string {
@@ -52,4 +58,9 @@ func RandomCurrency() string {
 // RandomAccountID generates a random account id
 func RandomAccountID() int64 {
 	return RandomInt(1, 5000)
+}
+
+// RandomEmail generates a random email
+func RandomEmail() string {
+	return fmt.Sprintf("%s@email.com", RandomString(int(RandomInt(5, 10))))
 }
