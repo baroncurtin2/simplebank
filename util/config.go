@@ -12,6 +12,9 @@ type Config struct {
 	AccessTokenDuration  time.Duration `mapstructure:"ACCESS_TOKEN_DURATION"`
 	DBDriver             string        `mapstructure:"DB_DRIVER"`
 	DBSource             string        `mapstructure:"DB_SOURCE"`
+	EmailSenderAddress   string        `mapstructure:"EMAIL_SENDER_ADDRESS"`
+	EmailSenderName      string        `mapstructure:"EMAIL_SENDER_NAME"`
+	EmailSenderPassword  string        `mapstructure:"EMAIL_SENDER_PASSWORD"`
 	Environment          string        `mapstructure:"ENVIRONMENT"`
 	GRPCServerAddress    string        `mapstructure:"GRPC_SERVER_ADDRESS"`
 	HTTPServerAddress    string        `mapstructure:"HTTP_SERVER_ADDRESS"`
